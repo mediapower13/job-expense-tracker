@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 
 const jobsRouter = require('./routes/jobs');
 const transactionsRouter = require('./routes/transactions');
@@ -17,6 +16,11 @@ app.get('/', (req, res) => {
 });
 
 app.use((err, req, res, next) => {
+  // Body-parser throws SyntaxError for malformed JSON payloads.
+  if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+    return res.status(400).json({ error: 'Invalid JSON body' });
+  }
+
   console.error(err);
   res.status(500).json({ error: 'Internal server error' });
 });
