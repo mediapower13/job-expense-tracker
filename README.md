@@ -1,22 +1,3 @@
-# Backend Assignments — Jobs & Expense Tracker
-
-Simple Express API implementing the requested endpoints for the two assignments.
-
-Quick start
-
-1. Install dependencies
-
-```bash
-npm install
-```
-
-2. Run
-
-```bash
-npm start
-# or during development
-npm run dev
-```
 
 API Endpoints
 
@@ -36,7 +17,6 @@ Transactions (Assignment 2)
 - PUT /transactions/:id
 - DELETE /transactions/:id
 
-Examples
 
 Create a job:
 
@@ -54,7 +34,3 @@ curl -X POST http://localhost:3000/transactions \
   -d '{"amount":250.5,"type":"income","category":"freelance","date":"2026-06-02","note":"project"}'
 ```
 
-Notes
-
-- This uses simple JSON-file storage in `data/`. For production, replace with a proper DB.
-- `data/` is ignored in `.gitignore` to avoid committing personal data. If you want the instructors to access your work, either commit the data or provide example screenshots and open the repo publicly.
