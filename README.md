@@ -34,3 +34,22 @@ curl -X POST http://localhost:3000/transactions \
   -d '{"amount":250.5,"type":"income","category":"freelance","date":"2026-06-02","note":"project"}'
 ```
 
+MongoDB Integration
+-------------------
+
+This project supports connecting to a MongoDB database. By default the app will continue to use local JSON files under the `data/` folder. To enable MongoDB, set the `MONGODB_URI` environment variable before running the server. Example using a local MongoDB instance:
+
+```bash
+export MONGODB_URI="mongodb://localhost:27017/job-expense-tracker"
+npm start
+```
+
+On Windows (PowerShell):
+
+```powershell
+$env:MONGODB_URI = 'mongodb://localhost:27017/job-expense-tracker'
+npm start
+```
+
+When connected, both `GET /jobs` and `POST /jobs` (and the transactions routes) will persist to MongoDB.
+
