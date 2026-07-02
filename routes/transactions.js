@@ -63,6 +63,8 @@ function normalizeTransaction(payload) {
     normalized.date = payload.date;
   }
   if (Object.prototype.hasOwnProperty.call(payload, 'note')) {
+
+    
     normalized.note = payload.note;
   }
   return normalized;
