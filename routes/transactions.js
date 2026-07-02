@@ -64,11 +64,13 @@ function normalizeTransaction(payload) {
   }
   if (Object.prototype.hasOwnProperty.call(payload, 'note')) {
 
-    
+
     normalized.note = payload.note;
   }
   return normalized;
 }
+
+
 
 router.post('/', async (req, res, next) => {
   try {
